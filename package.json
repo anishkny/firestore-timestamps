@@ -4,11 +4,12 @@
   "author": "Anish Karandikar <anishkny@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "pretest": "rm -rf coverage/ .nyc_output/",
-    "test": "FIRESTORE_EMULATOR_HOST=localhost:8080 GCLOUD_PROJECT=dummy-project nyc firebase emulators:exec --ui 'mocha functions/*.test.js'"
+    "pretest": "rm -rf coverage/ .nyc_output/ && ./generate-extension-yaml.js",
+    "test": "nyc firebase ext:dev:emulators:exec --test-params=test-params.env --ui 'mocha functions/*.test.js'"
   },
   "devDependencies": {
     "firebase-tools": "^9.12.1",
+    "js-yaml": "^4.1.0",
     "mocha": "^9.0.1",
     "nyc": "^15.1.0"
   }

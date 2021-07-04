@@ -1,0 +1,140 @@
+name: firestore-timestamps
+version: 0.0.1
+specVersion: v1beta
+displayName: Firestore Timestamps
+description: Automatically write createdAt and updatedAt timestamps in Firestore documents
+license: Apache-2.0
+author:
+  authorName: Anish Karandikar
+  email: anishkny@gmail.com
+  url: https://github.com/anishkny
+resources:
+  - name: writeCreatedAtDepth0
+    type: firebaseextensions.v1beta.function
+    properties:
+      location: ${LOCATION}
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.create
+        resource: projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}
+  - name: writeUpdatedAtDepth0
+    type: firebaseextensions.v1beta.function
+    properties:
+      location: ${LOCATION}
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.update
+        resource: projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}
+  - name: writeCreatedAtDepth1
+    type: firebaseextensions.v1beta.function
+    properties:
+      location: ${LOCATION}
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.create
+        resource: >-
+          projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}
+  - name: writeUpdatedAtDepth1
+    type: firebaseextensions.v1beta.function
+    properties:
+      location: ${LOCATION}
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.update
+        resource: >-
+          projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}
+  - name: writeCreatedAtDepth2
+    type: firebaseextensions.v1beta.function
+    properties:
+      location: ${LOCATION}
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.create
+        resource: >-
+          projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}
+  - name: writeUpdatedAtDepth2
+    type: firebaseextensions.v1beta.function
+    properties:
+      location: ${LOCATION}
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.update
+        resource: >-
+          projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}
+  - name: writeCreatedAtDepth3
+    type: firebaseextensions.v1beta.function
+    properties:
+      location: ${LOCATION}
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.create
+        resource: >-
+          projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}/{col3}/{doc3}
+  - name: writeUpdatedAtDepth3
+    type: firebaseextensions.v1beta.function
+    properties:
+      location: ${LOCATION}
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.update
+        resource: >-
+          projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}/{col3}/{doc3}
+  - name: writeCreatedAtDepth4
+    type: firebaseextensions.v1beta.function
+    properties:
+      location: ${LOCATION}
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.create
+        resource: >-
+          projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}/{col3}/{doc3}/{col4}/{doc4}
+  - name: writeUpdatedAtDepth4
+    type: firebaseextensions.v1beta.function
+    properties:
+      location: ${LOCATION}
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.update
+        resource: >-
+          projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}/{col3}/{doc3}/{col4}/{doc4}
+params:
+  - param: LOCATION
+    label: Cloud Functions location
+    description: >-
+      The location where you want to deploy Cloud Functions. For more help, see:
+      https://firebase.google.com/docs/functions/locations
+    type: select
+    options:
+      - label: us-central1 (Iowa)
+        value: us-central1
+      - label: us-east1 (South Carolina)
+        value: us-east1
+      - label: us-east4 (Northern Virginia)
+        value: us-east4
+      - label: europe-west1 (Belgium)
+        value: europe-west1
+      - label: europe-west2 (London)
+        value: europe-west2
+      - label: asia-east2 (Hong Kong)
+        value: asia-east2
+      - label: asia-northeast1 (Tokyo)
+        value: asia-northeast1
+      - label: asia-northeast2 (Osaka)
+        value: asia-northeast2
+      - label: us-west2 (Los Angeles)
+        value: us-west2
+      - label: us-west3 (Salt Lake City)
+        value: us-west3
+      - label: us-west4 (Las Vegas)
+        value: us-west4
+      - label: europe-central2 (Warsaw)
+        value: europe-central2
+      - label: europe-west3 (Frankfurt)
+        value: europe-west3
+      - label: europe-west6 (Zurich)
+        value: europe-west6
+      - label: northamerica-northeast1 (Montreal)
+        value: northamerica-northeast1
+      - label: southamerica-east1 (Sao Paulo)
+        value: southamerica-east1
+      - label: australia-southeast1 (Sydney)
+        value: australia-southeast1
+      - label: asia-south1 (Mumbai)
+        value: asia-south1
+      - label: asia-southeast2 (Jakarta)
+        value: asia-southeast2
+      - label: asia-northeast3 (Seoul)
+        value: asia-northeast3
+    default: us-central1
+    required: true
+    immutable: true

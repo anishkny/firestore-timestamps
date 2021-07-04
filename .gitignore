@@ -1,4 +1,5 @@
 .nyc_output/
 *.log
 coverage/
+extension.yaml
 node_modules/
