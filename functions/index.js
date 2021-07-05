@@ -3,6 +3,8 @@ const admin = require('firebase-admin');
 const equal = require('fast-deep-equal');
 const MAX_DEPTH = require('./constants').MAX_DEPTH;
 
+admin.initializeApp();
+
 // Construct document paths for each depth level
 // e.g. '{col0}/{doc0}', '{col0}/{doc0}/{col1}/{doc1}', ...
 const documentPaths = [];
