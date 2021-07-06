@@ -9,7 +9,7 @@ it('should write createdAt and updatedAt timestamps', async () => {
   const res = await db.collection('test').add({
     x: Math.random().toString(36).slice(2),
   });
-  await sleep(1000);
+  await sleep(2000);
 
   // Read the document
   const docRef = db.collection('test').doc(res.id);
@@ -17,13 +17,13 @@ it('should write createdAt and updatedAt timestamps', async () => {
 
   // Check that createdAt and updatedAt are set
   const createdAt = data.createdAt;
-  assert.isAtLeast(data.createdAt.toDate(), timestamp);
-  assert.isAtLeast(data.updatedAt.toDate(), timestamp);
+  assert.isAtLeast(data.createdAt.toDate(), timestamp, data.createdAt);
+  assert.isAtLeast(data.updatedAt.toDate(), timestamp, data.updatedAt);
   assert.equal(data.createdAt.toMillis(), data.updatedAt.toMillis());
 
   // Update the document
   await docRef.update({ y: Math.random().toString(36).slice(2) });
-  await sleep(1000);
+  await sleep(2000);
   const updatedData = (await docRef.get()).data();
 
   // Check that updatedAt is updated
