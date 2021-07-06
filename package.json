@@ -10,7 +10,7 @@
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint --fix .",
     "pretest": "npm run clean && npm run manifest && npm run lint",
-    "test": "nyc firebase ext:dev:emulators:exec --test-params=test-params.env --ui 'mocha functions/*.test.js'"
+    "test": "nyc firebase ext:dev:emulators:exec --test-params=test-params.env 'mocha functions/*.test.js'"
   },
   "devDependencies": {
     "eslint": "^7.30.0",

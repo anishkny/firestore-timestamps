@@ -25,6 +25,7 @@ for (let i = 0; i < MAX_DEPTH; i++) {
       properties: {
         location: '${LOCATION}',
         runtime: 'nodejs14',
+        sourceDirectory: 'functions',
         eventTrigger: {
           eventType: 'providers/cloud.firestore/eventTypes/document.create',
           resource: `projects/\${PROJECT_ID}/databases/(default)/documents/${documentPath}`,
@@ -36,6 +37,8 @@ for (let i = 0; i < MAX_DEPTH; i++) {
       type: 'firebaseextensions.v1beta.function',
       properties: {
         location: '${LOCATION}',
+        runtime: 'nodejs14',
+        sourceDirectory: 'functions',
         eventTrigger: {
           eventType: 'providers/cloud.firestore/eventTypes/document.update',
           resource: `projects/\${PROJECT_ID}/databases/(default)/documents/${documentPath}`,
