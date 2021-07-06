@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["test"],
+      "env": { "MOCHA_TIMEOUT": "0" },
+      "skipFiles": ["<node_internals>/**"],
+      "internalConsoleOptions": "openOnSessionStart",
+      "sourceMaps": false
+    }
+  ]
+}
