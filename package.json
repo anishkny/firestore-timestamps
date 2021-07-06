@@ -4,6 +4,7 @@
   "author": "Anish Karandikar <anishkny@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "postinstall": "cd functions && npm install",
     "clean": "rm -rf coverage/ .nyc_output/",
     "manifest": "./generate-extension-yaml.js",
     "lint": "prettier --check . && eslint .",
