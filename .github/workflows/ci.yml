@@ -11,7 +11,13 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - name: Run Tests
+      - name: Setup Dependencies
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_SETUP_CMD: ${{ secrets.FIREBASE_SETUP_CMD }}
         run: |
           npm install
-          npm test
+          npx firebase login:ci
+          $FIREBASE_SETUP_CMD
+      - name: Run Tests
+        run: npm test
