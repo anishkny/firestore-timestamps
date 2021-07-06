@@ -1,16 +1,22 @@
 name: firestore-timestamps
-version: 0.0.1
+version: 0.1.0
 specVersion: v1beta
 displayName: Firestore Timestamps
 description: Automatically write createdAt and updatedAt timestamps in Firestore documents
 license: Apache-2.0
+sourceUrl: https://github.com/anishkny/firestore-timestamps
 author:
   authorName: Anish Karandikar
   email: anishkny@gmail.com
   url: https://github.com/anishkny
+billingRequired: true
+roles:
+  - role: roles/datastore.user
+    reason: Allows the extension to write timestamps to Cloud Firestore
 resources:
   - name: writeCreatedAtDepth0
     type: firebaseextensions.v1beta.function
+    description: Write createdAt for documents at depth 0
     properties:
       location: ${LOCATION}
       runtime: nodejs14
@@ -20,6 +26,7 @@ resources:
         resource: projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}
   - name: writeUpdatedAtDepth0
     type: firebaseextensions.v1beta.function
+    description: Write updatedAt for documents at depth 0
     properties:
       location: ${LOCATION}
       runtime: nodejs14
@@ -29,6 +36,7 @@ resources:
         resource: projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}
   - name: writeCreatedAtDepth1
     type: firebaseextensions.v1beta.function
+    description: Write createdAt for documents at depth 1
     properties:
       location: ${LOCATION}
       runtime: nodejs14
@@ -39,6 +47,7 @@ resources:
           projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}
   - name: writeUpdatedAtDepth1
     type: firebaseextensions.v1beta.function
+    description: Write updatedAt for documents at depth 1
     properties:
       location: ${LOCATION}
       runtime: nodejs14
@@ -49,6 +58,7 @@ resources:
           projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}
   - name: writeCreatedAtDepth2
     type: firebaseextensions.v1beta.function
+    description: Write createdAt for documents at depth 2
     properties:
       location: ${LOCATION}
       runtime: nodejs14
@@ -59,6 +69,7 @@ resources:
           projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}
   - name: writeUpdatedAtDepth2
     type: firebaseextensions.v1beta.function
+    description: Write updatedAt for documents at depth 2
     properties:
       location: ${LOCATION}
       runtime: nodejs14
@@ -69,6 +80,7 @@ resources:
           projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}
   - name: writeCreatedAtDepth3
     type: firebaseextensions.v1beta.function
+    description: Write createdAt for documents at depth 3
     properties:
       location: ${LOCATION}
       runtime: nodejs14
@@ -79,6 +91,7 @@ resources:
           projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}/{col3}/{doc3}
   - name: writeUpdatedAtDepth3
     type: firebaseextensions.v1beta.function
+    description: Write updatedAt for documents at depth 3
     properties:
       location: ${LOCATION}
       runtime: nodejs14
@@ -89,6 +102,7 @@ resources:
           projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}/{col3}/{doc3}
   - name: writeCreatedAtDepth4
     type: firebaseextensions.v1beta.function
+    description: Write createdAt for documents at depth 4
     properties:
       location: ${LOCATION}
       runtime: nodejs14
@@ -99,6 +113,7 @@ resources:
           projects/${PROJECT_ID}/databases/(default)/documents/{col0}/{doc0}/{col1}/{doc1}/{col2}/{doc2}/{col3}/{doc3}/{col4}/{doc4}
   - name: writeUpdatedAtDepth4
     type: firebaseextensions.v1beta.function
+    description: Write updatedAt for documents at depth 4
     properties:
       location: ${LOCATION}
       runtime: nodejs14

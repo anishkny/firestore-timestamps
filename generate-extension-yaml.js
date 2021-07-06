@@ -22,6 +22,7 @@ for (let i = 0; i < MAX_DEPTH; i++) {
     {
       name: `writeCreatedAtDepth${i}`,
       type: 'firebaseextensions.v1beta.function',
+      description: `Write createdAt for documents at depth ${i}`,
       properties: {
         location: '${LOCATION}',
         runtime: 'nodejs14',
@@ -35,6 +36,7 @@ for (let i = 0; i < MAX_DEPTH; i++) {
     {
       name: `writeUpdatedAtDepth${i}`,
       type: 'firebaseextensions.v1beta.function',
+      description: `Write updatedAt for documents at depth ${i}`,
       properties: {
         location: '${LOCATION}',
         runtime: 'nodejs14',
@@ -56,11 +58,19 @@ const data = {
   description:
     'Automatically write createdAt and updatedAt timestamps in Firestore documents',
   license: 'Apache-2.0',
+  sourceUrl: 'https://github.com/anishkny/firestore-timestamps',
   author: {
     authorName: 'Anish Karandikar',
     email: 'anishkny@gmail.com',
     url: 'https://github.com/anishkny',
   },
+  billingRequired: true,
+  roles: [
+    {
+      role: 'roles/datastore.user',
+      reason: 'Allows the extension to write timestamps to Cloud Firestore',
+    },
+  ],
   resources,
   params: [
     {
