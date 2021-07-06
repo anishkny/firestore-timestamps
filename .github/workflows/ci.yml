@@ -17,7 +17,6 @@ jobs:
           FIREBASE_SETUP_CMD: ${{ secrets.FIREBASE_SETUP_CMD }}
         run: |
           npm install
-          npx firebase login:ci
           $FIREBASE_SETUP_CMD
       - name: Run Tests
         run: npm test
